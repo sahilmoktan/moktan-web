@@ -15,18 +15,21 @@ export default function Topbar() {
         }}
       >
         <Box sx={{ display: "flex", color: "black", alignItems: "center" }}>
-          <PermContactCalendarOutlinedIcon sx={{ width: 20, height: 20 }} />
+          <PermContactCalendarOutlinedIcon sx={{ width: 19, height: 19 }} />
           <Typography>+977-9863022025 </Typography>
-          <MailOutlineIcon sx={{ width: 20, height: 20, ml: "4px" }} />
+          <MailOutlineIcon sx={{ width: 19, height: 19, ml: "4px" }} />
           <Typography>mail@moktan.com.np</Typography>
         </Box>
         <Box sx={{ display: "flex", color: "black", alignItems: "center" }}>
           <Stack spacing={2} direction="row">
-            <Button variant="contained" size="small">
-              Log in
+            <Button variant="text" size="small">
+              Sell content
             </Button>
             <Button variant="contained" size="small">
-              Sign in
+              Share
+            </Button>
+            <Button variant="contained" size="small">
+              Pricing
             </Button>
           </Stack>
         </Box>

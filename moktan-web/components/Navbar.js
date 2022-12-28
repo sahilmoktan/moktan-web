@@ -16,6 +16,20 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import AdbIcon from "@mui/icons-material/Adb";
 
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+
+// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
+const top100Films = [
+  { label: "PSD", year: 1994 },
+  { label: "Vector", year: 1972 },
+  { label: "INDD", year: 1974 },
+  { label: "Tamplet", year: 2008 },
+  { label: "Mockups", year: 1957 },
+  { label: "Visiting Cards", year: 1993 },
+  { label: "Social Media", year: 1994 },
+];
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -41,6 +55,17 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 }));
+
+// const Autocomplete = styled("div")(({ theme }) => ({
+//   // padding: theme.spacing(0, 2),
+//   height: "100%",
+//   // position: "absolute",
+//   pointerEvents: "none",
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "center",
+//   backgroundColor: "whitesmoke",
+// }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -97,8 +122,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Log in</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Sign in</MenuItem>
     </Menu>
   );
 
@@ -179,6 +204,8 @@ export default function PrimarySearchAppBar() {
 
           <Search>
             <SearchIconWrapper>
+              <></>
+
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
@@ -186,6 +213,13 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {/* <Autocomplete
+            // disablePortal
+            // id="combo-box-demo"
+            options={top100Films}
+            sx={{ width: 150, height: "2rem" }}
+            renderInput={(params) => <TextField {...params} label="Catogory" />}
+          /> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
