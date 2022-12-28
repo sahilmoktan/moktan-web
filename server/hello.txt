@@ -1,2 +1,2 @@
 hello
-laptop 2
+laptop 2 & laptop 1 colabrate
