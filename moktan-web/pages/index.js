@@ -8,6 +8,7 @@ import Topbar from "../components/Topbar";
 // ** Configs
 import themeConfig from "../configs/themeConfig";
 import Menubar from "../components/Menubar";
+import Slideshow from "../components/Slideshow";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function Home() {
       <Topbar />
       <Navbar />
       <Menubar />
+      <Slideshow />
     </>
   );
 }

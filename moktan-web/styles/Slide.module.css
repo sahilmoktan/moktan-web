@@ -1,0 +1,15 @@
+.box {
+  width: 100%;
+  object-fit: contain;
+  /* border-radius: 0.5rem; */
+  padding: 1px;
+}
+
+.contBox {
+  margin: auto;
+  width: 100vw;
+  height: 250px;
+  border-radius: 0.5rem;
+  align-content: center;
+  align-self: center;
+}
