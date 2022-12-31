@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Topbar from "../components/Topbar";
+import Itemcard from "../components/Itemcard";
 
 // ** Configs
 import themeConfig from "../configs/themeConfig";
@@ -26,6 +27,7 @@ export default function Home() {
       <Navbar />
       <Menubar />
       <Slideshow />
+      <Itemcard />
     </>
   );
 }

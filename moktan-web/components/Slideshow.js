@@ -8,7 +8,7 @@ import styles from "../styles/Slide.module.css";
 export default function Slideshow() {
   //Array of Images
   const images = [
-    "images/Image1.jpg",
+    // "images/Image1.jpg",
     "images/Image2.jpg",
 
     "images/Image5.jpg",
@@ -18,7 +18,6 @@ export default function Slideshow() {
   const zoomInProperties = {
     indicators: false,
     scale: 1.2,
-
     duration: 5000,
     transitionDuration: 500,
     infinite: true,
@@ -47,14 +46,39 @@ export default function Slideshow() {
     ),
   };
   return (
-    <Box sx={{ width: "100vw", justifyContent: "center", marginTop: "0.6rem" }}>
-      <Zoom {...zoomInProperties}>
-        {images.map((each, index) => (
-          <div key={index} className={styles.contBox}>
-            <img className={styles.box} src={each} />
-          </div>
-        ))}
-      </Zoom>
-    </Box>
+    <>
+      <Box
+        sx={{
+          width: "100vw",
+          justifyContent: "center",
+          marginTop: "0.6rem",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        <Zoom {...zoomInProperties}>
+          {images.map((each, index) => (
+            <div key={index} className={styles.contBox}>
+              <img className={styles.box} src={each} />
+            </div>
+          ))}
+        </Zoom>
+      </Box>
+      <Box
+        sx={{
+          width: "100vw",
+          justifyContent: "center",
+          marginTop: "0.6rem",
+          display: { xs: "block", md: "none" },
+        }}
+      >
+        <Zoom {...zoomInProperties}>
+          {images.map((each, index) => (
+            <div key={index} className={styles.contBox1}>
+              <img className={styles.box1} src={each} />
+            </div>
+          ))}
+        </Zoom>
+      </Box>
+    </>
   );
 }

@@ -1,114 +1,52 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Tab,
+  Tabs,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import Drawer from "../components/Drawer";
 
-const pages = [
-  "Home",
-  "Products",
-  "Fonts",
-  "Blog",
-  "Pricing",
-  "About",
-  "Contact",
-];
-
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+const Header = () => {
+  const [value, setValue] = useState();
+  const theme = useTheme();
+  // console.log(theme);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  // console.log(isMatch);
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              justifyContent: "center",
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              justifyContent: "center",
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+    <React.Fragment>
+      <AppBar position="stickey">
+        <Toolbar>
+          {/* <AddBusinessRoundedIcon sx={{ transform: "scale(2)" }} /> */}
+          {isMatch ? (
+            <>
+              <Drawer />
+            </>
+          ) : (
+            <>
+              <Tabs
+                sx={{ margin: "auto" }}
+                indicatorColor="secondary"
+                textColor="inherit"
+                value={value}
+                onChange={(e, value) => setValue(value)}
               >
-                {page}
-              </Button>
-            ))}
-          </Box>
+                <Tab label="Home" />
+                <Tab label="Products" />
+                <Tab label="Fonts" />
+                <Tab label="Blog" />
+                <Tab label="About Us" />
+                <Tab label="Contact" />
+              </Tabs>
+            </>
+          )}
         </Toolbar>
-      </Container>
-    </AppBar>
+      </AppBar>
+    </React.Fragment>
   );
-}
-export default ResponsiveAppBar;
+};
+
+export default Header;

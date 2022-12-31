@@ -93,7 +93,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-  background-color: whitesmoke;
+  background-color: rgb(230, 230, 230);
 }
 
 a {
