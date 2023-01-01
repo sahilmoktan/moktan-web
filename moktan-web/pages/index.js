@@ -10,6 +10,7 @@ import Itemcard from "../components/Itemcard";
 import themeConfig from "../configs/themeConfig";
 import Menubar from "../components/Menubar";
 import Slideshow from "../components/Slideshow";
+import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Menubar />
       <Slideshow />
       <Itemcard />
+      <Footer />
     </>
   );
 }

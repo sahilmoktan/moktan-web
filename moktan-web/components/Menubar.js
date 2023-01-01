@@ -18,7 +18,8 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <AppBar position="stickey">
+      <AppBar position="sticky">
+        {/* ["absolute","fixed","relative","static","sticky"] */}
         <Toolbar>
           {/* <AddBusinessRoundedIcon sx={{ transform: "scale(2)" }} /> */}
           {isMatch ? (
